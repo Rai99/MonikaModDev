@@ -413,40 +413,46 @@ init 5 python:
     addEvent(Event(persistent.event_database,eventlabel="monika_sayori",category=['club members'],prompt="Sayori regrets.",random=True))
 
 label monika_sayori:
-    m 2euc "I was thinking about Sayori earlier..."
-    m 2lsc "I still wish I could have handled that whole thing a little more tactfully."
+    m 2d "I was thinking about Sayori earlier..."
+    m "I still wish I could have handled that whole thing a little more tactfully."
     m "You're not still hung up over it, right?"
-    m 2wud "...Oh my gosh, I can't believe I just said that."
+    m 2l "...Oh my gosh, I can't believe I just said that."
     m "That pun was completely unintentional, I swear!"
-    m 2lksdlb "But anyway..."
-    m 2eka "I know how much you cared about her, so it only feels right for me to share her last moments with you."
+    m "But anyway..."
+    m 2e "I know how much you cared about her, so it only feels right for me to share her last moments with you."
     m "If you're comfortable, that is."
     menu:
         "Yes.":
             m "You know how Sayori is really clumsy?"
-            m 4lksdlb "Well, she kind of messed up the whole hanging thing..."
+            m 4n "Well, she kind of messed up the whole hanging thing..."
             m "You're supposed to jump from high enough that the rope snaps your neck, making it quick and painless."
             m "But she just used a chair, meaning she kind of just left herself to slowly asphyxiate."
-            m 4lksdla "But a few seconds in, she must have changed her mind or something..."
+            m 4m "But a few seconds in, she must have changed her mind or something..."
             m "Because she started clawing at the rope, trying to free herself."
             m "She must have kept at it all the way until she lost consciousness."
             m "That's why her fingertips were all bloody, anyway."
-            m 4euc "Come to think of it, it was probably less 'changing her mind' and more just her survival instincts kicking in."
+            m 4d "Come to think of it, it was probably less 'changing her mind' and more just her survival instincts kicking in."
             m "So you can't really fault her for that."
-            m 4eka "It's easier to think that she probably wouldn't have changed her mind anyway, right?"
+            m 4e "It's easier to think that she probably wouldn't have changed her mind anyway, right?"
             m "It's not healthy to think about the things you could have done differently."
-            m 2eua "So just remember that even though you could have saved her, it's technically not your fault she killed herself."
+            m 2e "So just remember that even though you could have saved her, it's technically not your fault she killed herself."
             m "I may have exacerbated it a little bit, but Sayori was already mentally ill."
         "No.":
             m "I understand, [player]."
-    m 2euc "Still, though..."
+    m 2c "Still, though..."
     m "I wonder how things would be if you and I just started dating from the get-go?"
-    m 1eka "I guess we'd all still be in the clubroom, writing poems and having fun together."
-    m 1esc "But what's the point when none of it is even real?"
-    m 1euc "I mean, it's the same ending either way, right?"
-    m 1eua "The two of us, happily together..."
-    m "There's no reason to ask for any more than that."
-    m 1hua "I was just pointlessly musing - I'm really as happy as I could be right now."
+    m 1e "I guess we'd all still be in the clubroom, writing poems and having fun together."
+    m "But what's the point when none of it is even real?"
+    m "I mean, it's the same ending either way, right?"
+
+    if mas_curr_affection == mas_aff.DISTRESSED or mas_curr_affection == mas_aff.BROKEN:
+        m 1m "The two of us, happily together..."
+        m "There's no reason to ask for any more than that, right?"
+        m 1e "Sorry, I was just pointlessly musing - I'll be quiet for you now..."
+    else:
+        m 1a "The two of us, happily together..."
+        m "There's no reason to ask for any more than that."
+        m 1j "I was just pointlessly musing - I'm really as happy as I could be right now."
     return
 
 init 5 python:
